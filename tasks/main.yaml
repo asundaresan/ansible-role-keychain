@@ -1,0 +1,8 @@
+- name: create run-time configuration directory
+  file: path=~/.bashrc.d state=directory mode=0755
+- name: copy ssh-key ({{ keyname }})
+  template: 
+    src=templates/keychain.j2
+    dest=~/.bashrc.d/{{ keyname }}.rc
+    force=yes
+
